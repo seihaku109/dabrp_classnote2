@@ -103,18 +103,31 @@ if(!require("ggmap"))
 
 library(ggmap)
 
-remove.packages("ggmap", "ggmap")
 
 loc<-"서울"
 tar<-"서울시청"
 loc
+tar
 
-rm.packages("ggmap")
-wifidata<-fread("./data/wifi.csv")
+geocityhall<-geocode(tar)
+
+get_googlemap(loc,
+              maptype = "roadmap",
+              markers = geocityhall) %>%
+  ggmap()
+
+dir.create("../ggsave", showWarnings = F)
+ggsave("../ggsave/last.png")
+
+wifidata<-fread("./data/wifi.csv", encoding = "UTF-8")
 wifidata
 
 
 wifi_seoul <- filter(wifidata, grepl("서울", `소재지도로명주소`))
+
+head(wifi_seoul)
+
+wifi_ward <- unique(wifi_seoul, "설치시군구명")
 
 
 if(!require(ggsci)) devtools::install_github("road2stat/ggsci")
@@ -124,8 +137,29 @@ library(ggedit)
 library(dplyr)
 install.packages("dplyr")
 
-remove.packages("dplyr")
+if(!require(ggrepel)){
+  devtools::install_github("slowkow/ggrepel")
+}
+library(ggrepel)
 
+ggplot(mtcars) +
+  geom_point(aes(wt, mpg), color = 'red') +
+  geom_text(aes(wt, mpg,
+                label = rownames(mtcars))) +
+  theme_classic(base_size = 16)
+
+ggplot(mtcars) +
+  geom_point(aes(wt, mpg), color = 'red') +
+  geom_text_repel(aes(wt, mpg,
+                label = rownames(mtcars))) +
+  theme_classic(base_size = 16)
+
+install.packages("ggedit")
+library(ggedit)
+p <- ggplot (mtcars, aes(x = hp, y = wt)) +
+  geom_point() + geom_smooth(method = 'loess')
+p
+ggedit(p)
 
 
 if (!require(tidyverse)) install.packages("tidyverse") 
@@ -135,8 +169,47 @@ library(tidyverse)
 library(data.table)
 library(arules)
 
+# 서울중 각 구에 wifi가 몇개 잇는지 세고 각 구 이름으로 geocoding한 위치에 갯수를 size로 하는 버블 차트를 그려주세요.
+
 wifiseoul<-fread("./data/wifi.csv",  encoding = "UTF-8")
 wifiseoul
 
 head(wifiseoul)
+
+# from link
+
+if (!require(ggfortify)) install.packages("ggfortify") 
+library(ggfortify)
+autoplot(lm(Petal.Width ~ Petal.Length, data = iris), label.size = 3)
+
+par(mfrow = c(1, 2))
+m <- lm(Petal.Width ~ Petal.Length, data = iris)
+
+autoplot(m, which = 1:6, ncol = 3, label.size = 3)
+
+library(data.table)
+wifi<-fread("./data/wifi.csv")
+sw<-wifi[grep("서울", 소재지도로명주소),.(관리기관명,위도,경도)]
+sw<-unique(sw)
+names(sw)<-c("ser","lat","lon")
+sw<-data.frame(sw)
+
+sw
+
+get_googlemap(loc, maptype = "roadmap", zoom = 11) %>% ggmap() + 
+  geom_point(data=sw, aes(x=lon, y=lat, color=ser)) + theme(legend.position="none")
+
+# 과제1
+
+chen<-fread("./recomen/chennel.csv")
+
+chen
+
+library(dplyr)
+chennel %>% 
+  group_by(useCnt) %>% 
+  summarise(useCnt = sum(useCnt))
+
+ggplot(chen, aes(x=chennel, y=sum(useCnt))) + geom_bar()
+
 
