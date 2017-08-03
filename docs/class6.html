@@ -5,7 +5,11 @@
     <meta charset="utf-8">
     <meta name="author" content="박찬엽" />
     <link href="libs/remark-css/example.css" rel="stylesheet" />
+<<<<<<< HEAD
     <link rel="stylesheet" href="class6.css" type="text/css" />
+=======
+    <link rel="stylesheet" href="class.css" type="text/css" />
+>>>>>>> 850aed63263ea3b791a7cd2ea9682d40821f6a4a
   </head>
   <body>
     <textarea id="source">
@@ -52,7 +56,10 @@ class: center, middle
 
 ![](https://github.com/tidyverse/ggplot2/blob/master/man/figures/logo.png?raw=true)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 850aed63263ea3b791a7cd2ea9682d40821f6a4a
 ---
 
 ## ggplot2란
@@ -127,6 +134,13 @@ if (!require("gapminder")){install.packages("gapminder")}
 ## Loading required package: gapminder
 ```
 
+<<<<<<< HEAD
+=======
+```
+## Warning: package 'gapminder' was built under R version 3.4.1
+```
+
+>>>>>>> 850aed63263ea3b791a7cd2ea9682d40821f6a4a
 ```r
 library(gapminder)
 str(gapminder)
@@ -708,6 +722,42 @@ Kormaps는 설치 및 사용이 까다로워서 함께 진행하도록 하겠습
 
 ```r
 if (!require(ggsci)) devtools::install_github("road2stat/ggsci")
+<<<<<<< HEAD
+=======
+```
+
+```
+## Loading required package: ggsci
+```
+
+```
+## Warning in library(package, lib.loc = lib.loc, character.only = TRUE,
+## logical.return = TRUE, : there is no package called 'ggsci'
+```
+
+```
+## Downloading GitHub repo road2stat/ggsci@master
+## from URL https://api.github.com/repos/road2stat/ggsci/zipball/master
+```
+
+```
+## Installing ggsci
+```
+
+```
+## "C:/PROGRA~1/R/R-34~1.0/bin/x64/R" --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   "C:/Users/mrchypark/AppData/Local/Temp/RtmpUbq3OO/devtoolseb431343eee/road2stat-ggsci-e92209e"  \
+##   --library="C:/Users/mrchypark/Documents/R/win-library/3.4"  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```r
+>>>>>>> 850aed63263ea3b791a7cd2ea9682d40821f6a4a
 library(ggsci)
 library(gridExtra)
 data("diamonds")
@@ -744,7 +794,43 @@ grid.arrange(p1_aaas, p2_aaas, ncol = 2)
 ```r
 if (!require(ggthemes)){
 devtools::install_github("jrnold/ggthemes")}
+<<<<<<< HEAD
 
+=======
+```
+
+```
+## Loading required package: ggthemes
+```
+
+```
+## Warning in library(package, lib.loc = lib.loc, character.only = TRUE,
+## logical.return = TRUE, : there is no package called 'ggthemes'
+```
+
+```
+## Downloading GitHub repo jrnold/ggthemes@master
+## from URL https://api.github.com/repos/jrnold/ggthemes/zipball/master
+```
+
+```
+## Installing ggthemes
+```
+
+```
+## "C:/PROGRA~1/R/R-34~1.0/bin/x64/R" --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   "C:/Users/mrchypark/AppData/Local/Temp/RtmpUbq3OO/devtoolseb4673d7784/jrnold-ggthemes-6ff7f15"  \
+##   --library="C:/Users/mrchypark/Documents/R/win-library/3.4"  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```r
+>>>>>>> 850aed63263ea3b791a7cd2ea9682d40821f6a4a
 library("ggthemes")
 
 p1_th1 &lt;- p1 + 
@@ -773,6 +859,42 @@ grid.arrange(p1_th1, p2_th2, ncol = 2)
 ```r
 if (!require(ggrepel)){
   devtools::install_github("slowkow/ggrepel")}
+<<<<<<< HEAD
+=======
+```
+
+```
+## Loading required package: ggrepel
+```
+
+```
+## Warning in library(package, lib.loc = lib.loc, character.only = TRUE,
+## logical.return = TRUE, : there is no package called 'ggrepel'
+```
+
+```
+## Downloading GitHub repo slowkow/ggrepel@master
+## from URL https://api.github.com/repos/slowkow/ggrepel/zipball/master
+```
+
+```
+## Installing ggrepel
+```
+
+```
+## "C:/PROGRA~1/R/R-34~1.0/bin/x64/R" --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   "C:/Users/mrchypark/AppData/Local/Temp/RtmpUbq3OO/devtoolseb464b648f1/slowkow-ggrepel-fd15d0a"  \
+##   --library="C:/Users/mrchypark/Documents/R/win-library/3.4"  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```r
+>>>>>>> 850aed63263ea3b791a7cd2ea9682d40821f6a4a
 library(ggrepel)
 ```
 
@@ -867,7 +989,11 @@ ggedit(p)
     - `서비스제공사명`을 기준으로 통신 3사가 아닌 제공사는 기타로 처리하고, 여러 개로 작성된 것은 각 개수 만큼 분리하여 독립 wifi로 처리하여 위의 차트를 `서비스제공사명`으로 그룹지어서 그려주세요. 총 4개 차트가 함께 나오면 됩니다.
 ]
 .pull-right[
+<<<<<<< HEAD
 
+=======
+![](class6_files/figure-html/unnamed-chunk-39-1.png)&lt;!-- --&gt;
+>>>>>>> 850aed63263ea3b791a7cd2ea9682d40821f6a4a
 ]
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

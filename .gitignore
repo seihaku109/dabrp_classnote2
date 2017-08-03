@@ -8,5 +8,9 @@ recomen/chennel.csv
 run_sam.R
 *cache*
 .httr-oauth
+<<<<<<< HEAD
 assign6.R
+=======
+assign7.R
+>>>>>>> 850aed63263ea3b791a7cd2ea9682d40821f6a4a
 *ggsave*
