@@ -153,6 +153,7 @@ swc <- sw %>% left_join(dac[,-2],by=c(`서비스제공사명`="ori"))
 
 sum(!is.na(swc[,c("sk","kt","lg","etc")]))
 
+
 tem<-swc %>%
   select(`설치시도명`,
          `와이파이SSID`,
@@ -167,9 +168,13 @@ tem<-swc %>%
 sum(!is.na(tem$TF))
 
 tem<-tem[!is.na(tem$TF),]
-
+da$ori<-as.character(da$ori)
 temc <- tem %>% 
   left_join(da,by=c(`설치년월`="ori"))
+
+
+
+
 
 temc %>%
   select(`설치시도명`,tar,comp) %>%
@@ -215,3 +220,18 @@ theme_set(theme_gray(base_family='NanumGothic'))
 
 ggplot(iris, aes(Sepal.Length, Sepal.Width)) + 
   geom_point(aes(colour=Species)) + ggtitle("나눔고딕체 제목")
+
+
+{R, results="asis",echo=F}    
+if(!require(knitr)){
+  install.packages("knitr")}
+library(knitr)    
+obj<-c("소스코드","텍스트",
+       "플롯","메세지","경고")    
+role<-c("코드청크에 들어있는 R 코드",    
+        "summary(iris)와 같은 글자 출력 결과물",    
+        "plot(iris)와 같은 그림 출력 결과물",
+        "메세지","경고")    
+dat<-data.frame("객체"=obj,"목적"=role)    
+kable(dat,align="cl", "html")
+
